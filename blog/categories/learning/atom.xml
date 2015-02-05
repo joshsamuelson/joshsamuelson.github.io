@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Musings | Josh Samuelson]]></title>
-  <link href="http://joshsamuelson.github.io/blog/categories/musings/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Learning | Josh Samuelson]]></title>
+  <link href="http://joshsamuelson.github.io/blog/categories/learning/atom.xml" rel="self"/>
   <link href="http://joshsamuelson.github.io/"/>
   <updated>2015-02-04T21:44:19-08:00</updated>
   <id>http://joshsamuelson.github.io/</id>
@@ -41,32 +41,6 @@
 
 
 <p>This isn&rsquo;t really on my official project list, but I&rsquo;m going to try to tackle this one. I&rsquo;ll also write up as much as I can and make a blog series out of it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Blog Reboot]]></title>
-    <link href="http://joshsamuelson.github.io/blog/2015/02/03/blog-reboot/"/>
-    <updated>2015-02-03T21:54:34-08:00</updated>
-    <id>http://joshsamuelson.github.io/blog/2015/02/03/blog-reboot</id>
-    <content type="html"><![CDATA[<p>Things have changed quite a bit for me in the last year and I&rsquo;ve been feeling
-the urge to start blogging again. Since my previous blog a bit of a mess and the
-content was all over the map, I decided to start fresh and keep the content more
-focused. This time I&rsquo;m going to focus on projects, mostly tech projects, but
-maybe I&rsquo;ll throw in the occasional cooking or brewing adventure.</p>
-
-<p>The other reason for the reboot is that I&rsquo;m sick of dealing with Wordpress&#8217;
-nonsense, most recently it was alerting me to an update and wasn&rsquo;t letting me
-update. Rather than deal with the pain of fixing it by hand, and possibly
-redeploying and restoring I thought I&rsquo;d just give octopress a try.</p>
-
-<p>My plan is to move this into S3 eventually but for now I&rsquo;m just using the
-built-in github pages. I like the idea of replacing a heavy slow platform like
-wordpress with something totally static in S3. Once that&rsquo;s done, I may even
-transfer my domain over to Amazon too and just get rid of my old hosting provider.</p>
-
-<p>I&rsquo;ll probably recycle some of my old blog, but some of it I&rsquo;ll leave behind,
-for now I&rsquo;m just going to focus on new content.</p>
 ]]></content>
   </entry>
   
