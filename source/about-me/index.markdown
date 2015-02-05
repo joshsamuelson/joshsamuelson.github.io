@@ -20,3 +20,5 @@ computers. I work for Puppet Labs in PDX, making tools to help people learn
 puppet. In the past, I've been a cook at a Holden Village, a pastor in North
 Hollywood, a sysadmin at a few places, a student in Berekely, a test technician
 at Intel, and a few other things.
+
+I'm not looking for a job. Don't contact me about that.
