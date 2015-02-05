@@ -10,9 +10,9 @@ categories:
 - puppet
 ---
 
-I recently watched [this somewhat mind-blowing video](http://vimeo.com/36579366). I know he's making a larger point about purpose in life, and I think he's got a point, but really the part that blew me away was the idea of instant feedback not just as a "crutch" for learning, but as he put he "writing code without a blindfold on". It also occurs to me that part of the reason more people don't code is because it involves different parts of the brain, you have to constantly visualize data and what's happening inside the code while at the same time using your analytical brain to actually create the code.
+I recently watched [this somewhat mind-blowing video](http://vimeo.com/36579366). I know he's making a larger point about purpose in life, and I think he's got a point, but really the part that blew me away was the idea of instant feedback not just as a "crutch" for learning, but as he put it "writing code without a blindfold on". It also occurs to me that part of the reason more people don't code is because it involves different parts of the brain, you have to constantly visualize data and what's happening inside the code while at the same time using your analytical brain to actually create the code.
 
-I know there are people who can do this, to some extent, I'm one of them. But, I also know that I sometimes have trouble forming complete sentences when I'm deep in hack mode working on some problem. It's also why something like IntelliSense in VisualStudio is so popular, it gives you instant context.
+I know there are people who can do this, to some extent I'm one of them. I also know that I sometimes have trouble forming complete sentences when I'm deep in hack mode working on some problem. It's also why something like IntelliSense in VisualStudio is so popular, it gives you instant context.
 
 I used to think of that kind of think as cheating, a crutch for those who couldn't remember how to do things. In retrospect, that attitude is probably what kept me from doing more coding after college. It's also an attitude that was reinforced in my CS classes.
 
