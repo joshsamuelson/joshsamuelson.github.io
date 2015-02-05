@@ -4,7 +4,7 @@
   <title><![CDATA[Josh Samuelson]]></title>
   <link href="http://joshsamuelson.github.io/atom.xml" rel="self"/>
   <link href="http://joshsamuelson.github.io/"/>
-  <updated>2015-02-04T21:49:21-08:00</updated>
+  <updated>2015-02-04T21:53:20-08:00</updated>
   <id>http://joshsamuelson.github.io/</id>
   <author>
     <name><![CDATA[Josh Samuelson]]></name>
@@ -18,7 +18,7 @@
     <link href="http://joshsamuelson.github.io/blog/2015/02/04/learning-with-instant-feedback/"/>
     <updated>2015-02-04T17:50:04-08:00</updated>
     <id>http://joshsamuelson.github.io/blog/2015/02/04/learning-with-instant-feedback</id>
-    <content type="html"><![CDATA[<p>I recently watched this somewhat mind-blowing video <link to instant feedback video>. I know he&rsquo;s making a larger point about purpose in life, and I think he&rsquo;s got a point, but really the part that blew me away was the idea of instant feedback not just as a &ldquo;crutch&rdquo; for learning, but as he put he &ldquo;writing code without a blindfold on&rdquo;. It also occurs to me that part of the reason more people don&rsquo;t code is because it involves different parts of the brain, you have to constantly visualize data and what&rsquo;s happening inside the code while at the same time using your analytical brain to actually create the code.</p>
+    <content type="html"><![CDATA[<p>I recently watched [this somewhat mind-blowing video] (<a href="http://vimeo.com/36579366">http://vimeo.com/36579366</a>). I know he&rsquo;s making a larger point about purpose in life, and I think he&rsquo;s got a point, but really the part that blew me away was the idea of instant feedback not just as a &ldquo;crutch&rdquo; for learning, but as he put he &ldquo;writing code without a blindfold on&rdquo;. It also occurs to me that part of the reason more people don&rsquo;t code is because it involves different parts of the brain, you have to constantly visualize data and what&rsquo;s happening inside the code while at the same time using your analytical brain to actually create the code.</p>
 
 <p>I know there are people who can do this, to some extent, I&rsquo;m one of them. But, I also know that I sometimes have trouble forming complete sentences when I&rsquo;m deep in hack mode working on some problem. It&rsquo;s also why something like IntelliSense in VisualStudio is so popular, it gives you instant context.</p>
 
@@ -26,7 +26,7 @@
 
 <p>Now that I actually have to do some programming as part of my work, I don&rsquo;t really care about cheating. I&rsquo;ll happily use every trick in the book to make things better or build them more quickly. This is especially true of copying or repurposing what others have done (with proper attribution obviously).</p>
 
-<p>With that in mind, I&rsquo;ve been trying to think of ways that I could make writing puppet manifests have a little more instant feedback. Khan Academy has a great project here <a href="http://github.com/khan/live-editor">http://github.com/khan/live-editor</a> that they use for teaching basic programming with JavaScript. It allows a student to write their code and see the results even before they&rsquo;re finished. This makes errors like missing semicolons at the end of a line almost impossible, because the feedback is so immediate.</p>
+<p>With that in mind, I&rsquo;ve been trying to think of ways that I could make writing puppet manifests have a little more instant feedback. [Khan Academy has a great project] (<a href="http://github.com/khan/live-editor">http://github.com/khan/live-editor</a>) that they use for teaching basic programming with JavaScript. It allows a student to write their code and see the results even before they&rsquo;re finished. This makes errors like missing semicolons at the end of a line almost impossible, because the feedback is so immediate.</p>
 
 <p>I think some of the could be translated to puppet. For example, as a student types code into an editor, puppet-lint could be checking the syntax live. That shouldn&rsquo;t be too tough and could maybe even be done by adapting Khan&rsquo;s editor and just wiring it up to a different output. But the output of puppet is more tangible, in order to check the results of a manifest, it needs to be applied to an actual node and then the node&rsquo;s state needs to be checked.</p>
 
