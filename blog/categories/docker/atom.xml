@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Tech | Josh Samuelson]]></title>
-  <link href="http://joshsamuelson.github.io/blog/categories/tech/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Docker | Josh Samuelson]]></title>
+  <link href="http://joshsamuelson.github.io/blog/categories/docker/atom.xml" rel="self"/>
   <link href="http://joshsamuelson.github.io/"/>
   <updated>2015-02-05T19:06:31-08:00</updated>
   <id>http://joshsamuelson.github.io/</id>
@@ -33,37 +33,6 @@
 <p>The thing is, puppet and docker solve different problems. Puppet is often used to solve some of the problems that docker solves, that&rsquo;s true. For those cases, docker is better, hands down. Puppet does make it much easier to manage applications and all the hassle of updates and patches. But that isn&rsquo;t really what puppet it for. Puppet is a way of defining infractructure in a declarative way. It&rsquo;s a way of defining the finished state of a system and a tool for making that happen. I&rsquo;m really glad that Gareth build the docker module for puppet because it&rsquo;s a great example of how puppet and docker work well together.</p>
 
 <p>My PLEX server is a good example of that, it&rsquo;s defined by puppet, the &ldquo;application&rdquo; is managed by puppet. Docker takes care of what docker is good at, puppet takes care of what puppet is good at.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learning With Instant Feedback]]></title>
-    <link href="http://joshsamuelson.github.io/blog/2015/02/04/learning-with-instant-feedback/"/>
-    <updated>2015-02-04T17:50:04-08:00</updated>
-    <id>http://joshsamuelson.github.io/blog/2015/02/04/learning-with-instant-feedback</id>
-    <content type="html"><![CDATA[<p>I recently watched <a href="http://vimeo.com/36579366">this somewhat mind-blowing video</a>. I know he&rsquo;s making a larger point about purpose in life, and I think he&rsquo;s got a point, but really the part that blew me away was the idea of instant feedback not just as a &ldquo;crutch&rdquo; for learning, but as he put it &ldquo;writing code without a blindfold on&rdquo;. It also occurs to me that part of the reason more people don&rsquo;t code is because it involves different parts of the brain, you have to constantly visualize data and what&rsquo;s happening inside the code while at the same time using your analytical brain to actually create the code.</p>
-
-<p>I know there are people who can do this, to some extent I&rsquo;m one of them. I also know that I sometimes have trouble forming complete sentences when I&rsquo;m deep in hack mode working on some problem. It&rsquo;s also why something like IntelliSense in VisualStudio is so popular, it gives you instant context.</p>
-
-<p>I used to think of that kind of think as cheating, a crutch for those who couldn&rsquo;t remember how to do things. In retrospect, that attitude is probably what kept me from doing more coding after college. It&rsquo;s also an attitude that was reinforced in my CS classes.</p>
-
-<p>Now that I actually have to do some programming as part of my work, I don&rsquo;t really care about cheating. I&rsquo;ll happily use every trick in the book to make things better or build them more quickly. This is especially true of copying or repurposing what others have done (with proper attribution obviously).</p>
-
-<p>With that in mind, I&rsquo;ve been trying to think of ways that I could make writing puppet manifests have a little more instant feedback. <a href="http://github.com/khan/live-editor">Khan Academy has a great project</a> that they use for teaching basic programming with JavaScript. It allows a student to write their code and see the results even before they&rsquo;re finished. This makes errors like missing semicolons at the end of a line almost impossible, because the feedback is so immediate.</p>
-
-<p>I think some of the could be translated to puppet. For example, as a student types code into an editor, puppet-lint could be checking the syntax live. That shouldn&rsquo;t be too tough and could maybe even be done by adapting Khan&rsquo;s editor and just wiring it up to a different output. But the output of puppet is more tangible, in order to check the results of a manifest, it needs to be applied to an actual node and then the node&rsquo;s state needs to be checked.</p>
-
-<p>There are a few pieces to this puzzle:</p>
-
-<ul>
-<li>A responsive editor with live feedback on code</li>
-<li>A sandbox environment where puppet code can be tested</li>
-<li>Serverspec (or similar) tests with a live display of environment status</li>
-<li>Some way of arranging the whole thing</li>
-</ul>
-
-
-<p>This isn&rsquo;t really on my official project list, but I&rsquo;m going to try to tackle this one. I&rsquo;ll also write up as much as I can and make a blog series out of it.</p>
 ]]></content>
   </entry>
   
