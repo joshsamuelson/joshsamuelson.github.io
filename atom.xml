@@ -4,7 +4,7 @@
   <title><![CDATA[Josh Samuelson]]></title>
   <link href="http://joshsamuelson.github.io/atom.xml" rel="self"/>
   <link href="http://joshsamuelson.github.io/"/>
-  <updated>2015-02-11T11:41:11-08:00</updated>
+  <updated>2015-02-18T15:00:05-08:00</updated>
   <id>http://joshsamuelson.github.io/</id>
   <author>
     <name><![CDATA[Josh Samuelson]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rinse Repeat]]></title>
+    <link href="http://joshsamuelson.github.io/blog/2015/02/18/rinse-repeat/"/>
+    <updated>2015-02-18T09:51:58-08:00</updated>
+    <id>http://joshsamuelson.github.io/blog/2015/02/18/rinse-repeat</id>
+    <content type="html"><![CDATA[<p>The last few months have been a major crash course for me in configuration management and Puppet in particular. I wouldn&rsquo;t call myself an expert at least considering what counts as a puppet expert at Puppet Labs, but I feel like I know enough now that I could easily do my previous job almost entirely using puppet. A big part of my job now is building VMs that we will use in the classroom. The part that has really changed my perspective is how freely I can now throw something away that doesn&rsquo;t work. My attitude with computers has often been that if something is seriously screwed up, it&rsquo;s often simpler and faster to just start fresh rather than figure out some arcane issue. This is espeically true with Windows desktops OS&rsquo;s. It&rsquo;s also why I get a little annoyed when someone asks me to fix their computer, because if it were mine, I would just wipe it out and start fresh. Doing that too often can be a big pain and with servers it can be seriously risky because it&rsquo;s easy to miss something important.</p>
+
+<p>That&rsquo;s where puppet has really changed my perspective. I realized that I know longer think of the server (or the VM image in my case) as the &ldquo;thing&rdquo; I&rsquo;m managing, that&rsquo;s just the expression of the real thing. The puppet code is what I&rsquo;m managing and maintaining. That let&rsquo;s me make and undo small changes as I work toward improving things, without having to worry how undoing a change might cause issues down the line. It&rsquo;s so easy to start fresh that I don&rsquo;t mind trying something out, throwing away the result, and trying another variation until I find the right solution.</p>
+
+<p>I think this isn&rsquo;t quite what puppet has been used for, or maybe what it was initially intended for, but I think it&rsquo;s really the future of how people will manage most of their systems. Puppet is a great tool for addressing drift, i.e. when something has changed on one system that should otherwise be identical to the others. In the long run, I think it&rsquo;s going to become simpler to just trash a system that has drifted and redeploy from the code.</p>
+
+<p>If you think of it in terms of software its more obvious. If a piece of compiled software becomes corrupted, say because of an issue with the disk, you would never go in to the file and try to repair it so that it matched a known good copy. No, the correct thing to do in that case is to simply redploy the file. Now that so many servers are virtualized or containerized, I think it makes much more sense to think of them as files.</p>
+
+<p>What&rsquo;s been remarkable about this for me is how much it&rsquo;s shifted my thinking. Even when working on projects at home I find myself wanting to set things up in puppet just so I don&rsquo;t have to worry about it when I need to start fresh. It also has me doing something I&rsquo;d never bothered with before for person tinkering, documentation. I&rsquo;m actually documenting my work as I go by writing the puppet code.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Contain Yourself]]></title>
