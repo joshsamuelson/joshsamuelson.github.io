@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://joshsamuelson.github.io/blog/2015/03/15/control-stack/</loc>
+    <lastmod>2015-03-15T09:22:34-07:00</lastmod>
+  </url>
+  <url>
     <loc>http://joshsamuelson.github.io/blog/2015/02/18/rinse-repeat/</loc>
     <lastmod>2015-02-18T09:51:58-08:00</lastmod>
   </url>
@@ -18,14 +22,14 @@
   </url>
   <url>
     <loc>http://joshsamuelson.github.io/blog/archives/</loc>
-    <lastmod>2015-02-18T15:00:05-08:00</lastmod>
+    <lastmod>2015-03-15T11:11:23-07:00</lastmod>
   </url>
   <url>
     <loc>http://joshsamuelson.github.io/</loc>
-    <lastmod>2015-02-18T15:00:05-08:00</lastmod>
+    <lastmod>2015-03-15T11:11:23-07:00</lastmod>
   </url>
   <url>
     <loc>http://joshsamuelson.github.io/about-me/</loc>
-    <lastmod>2015-02-18T15:00:05-08:00</lastmod>
+    <lastmod>2015-03-15T11:11:23-07:00</lastmod>
   </url>
 </urlset>

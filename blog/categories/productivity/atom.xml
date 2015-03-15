@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Productivity | Josh Samuelson]]></title>
+  <link href="http://joshsamuelson.github.io/blog/categories/productivity/atom.xml" rel="self"/>
+  <link href="http://joshsamuelson.github.io/"/>
+  <updated>2015-03-15T11:11:23-07:00</updated>
+  <id>http://joshsamuelson.github.io/</id>
+  <author>
+    <name><![CDATA[Josh Samuelson]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Control Stack]]></title>
+    <link href="http://joshsamuelson.github.io/blog/2015/03/15/control-stack/"/>
+    <updated>2015-03-15T09:22:34-07:00</updated>
+    <id>http://joshsamuelson.github.io/blog/2015/03/15/control-stack</id>
+    <content type="html"><![CDATA[<p>One idea that keeps kicking around in my brain is how hard it is to get back to work after being interrupted, and how computers are able to handle that with ease. I wonder if it might be possible to deal with interruptions the way a computer handles a Control Stack. For the uninitiated, let me explain how a computer deals with things.</p>
+
+<p>For a simple program here&rsquo;s how it works: The computer goes merrily along performing the actions you give it, for example if you tell it something like <code>print "hello"</code> it will print out &ldquo;hello&rdquo; and then move on to the next thing. Maybe the next thing is <code>print 2 + 2</code> and it&rsquo;ll print out &ldquo;4&rdquo; and so on. That&rsquo;s all pretty useless and boring until you add the ability to interrupt what it&rsquo;s doing.</p>
+
+<p>Those interruptions take the form of functions. So, if you wanted to do something fancy, like count the number of letters in a word, you&rsquo;d use a function. That might look something like this <code>print number_of_letters("hello")</code> &ldquo;number_of_letters&rdquo; is the name of the function and &ldquo;hello&rdquo; is the word we&rsquo;re counting. Assuming we&rsquo;ve defined &ldquo;number_of_letters&rdquo; somewhere (or someone else has and we&rsquo;re using their library of functions) we&rsquo;ll see &ldquo;5&rdquo; printed out on the console. But here&rsquo;s the thing, the computer has to remember where it was before it went off to count out those numbers.</p>
+
+<p>The way the computer handles this is with a data structure called a stack. A good analogy is when you&rsquo;re reading a book and you find a word you don&rsquo;t know. Now you could place a bookmark in the book and close it, then grab a dictionary and open that and find your word, close the dictionary and open your book at the bookmark. But keeping track of that bookmark is a hassle, a smarter way is to set the dictionary on top of the open book and find your word. When you&rsquo;re done with the dictionary, you can move it out of the way and pick up where you left off. That&rsquo;s how a control stack in a computer works, execpt it stacks many more levels, a bit like if you&rsquo;re reading a book in a Spanish you might need to look up a word in a Spanish/English dictionary and if you didn&rsquo;t understand the English you&rsquo;d need to look that word up in an English dictionary.</p>
+
+<p>The computer is able to handle a huge control stack and it allows you to do some fancy stuff. For example, for our &ldquo;number_of_letters&rdquo; function we could write it some thing like this:
+<code>define number_of_letters(word_to_count)
+  count = 0
+  for each letter in word_to_count
+    add 1 to count
+  return count
+end</code>
+I hope that&rsquo;s clear enough for people who don&rsquo;t know programming, I don&rsquo;t want to over explain.
+That way of doing it is fine, but there is another way of defining that function that makes use of the control stack and it&rsquo;s called &ldquo;recursion&rdquo;
+<code>define number_of_letters(word_to_count)
+  if word_to_count is blank
+    return 0
+  else
+    return number_of_letters(word_to_count minus the last letter) + 1
+end</code>
+So if we&rsquo;re using it will &ldquo;hello&rdquo;, first it tries &ldquo;hello&rdquo;, then &ldquo;hell&rdquo;, then &ldquo;hel&rdquo;, then &ldquo;he&rdquo;, then &ldquo;h&rdquo;, and finally it&rsquo;s blank. Like the stack of dictionaries, as it closes each function, it sends back a value as it looks it up. The number of letters in nothing is 0, so it picks up where it left off which was <code>number_of_letters("h")</code>. But now that it closed that top &ldquo;book&rdquo;, all it has to figure out is &ldquo;0 + 1&rdquo;, so <code>number_of_letters("h")</code> returns 1 and we can close that &ldquo;book&rdquo; and pick up where we left off with <code>number_of_letters("he")</code>. Since we&rsquo;ve figured out <code>number_of_letters("h")</code> is equal to 1, we&rsquo;ll return 1 + 1 from <code>number_of_letters("he")</code>, so <code>number_of_letters("hel")</code> will return 2 + 1, and so on.
+This is a trivial example of recursion, but it can be incredbily powerful and it can save a ton of keeping track of the counts of things and elaborate loops. It also let&rsquo;s you make the computer smarter. All it needs to know how to do is check if a word is blank, how to drop the last letter from a word, and how to add. Hopefully this isn&rsquo;t too hard to understand for someone who doesn&rsquo;t know programming.</p>
+
+<p>The point is, that the computer handles all of this with ease because it has the control stack, it adds new tasks to the top of the stack and removes them as their completed and painlessly picks up where it left off. What if we handled interruptions in the same way?</p>
+
+<p>Here&rsquo;s a human example: Checking your email when you start work in the morning.</p>
+
+<p>Say you open your email and see there are 10 new emails. So you start from the top, and read the first one,</p>
+
+<p>So here&rsquo;s what your stack looks like:
+- Check Email
+- Read First Email</p>
+
+<p>Except, that isn&rsquo;t quite right. Even though that&rsquo;s the order you did the things, in a stack the first thing is on the bottom. As you add new tasks, they get put on top.</p>
+
+<p>So the stack is really this:
+- Read First Email
+- Check Email</p>
+
+<p>The first email is about how you&rsquo;re long lost relative in Nigeria has left you a substantial fortune and the sender just needs some money up front to pay the bank transfer fees. After reading that, your stack would look like this:</p>
+
+<ul>
+<li>Delete SPAM</li>
+<li>Read First Email</li>
+<li>Check Email</li>
+</ul>
+
+
+<p>But at that point you decide that you want to complain to the IT department about all the SPAM you&rsquo;d been getting, so before you delete it you send an email to IT.</p>
+
+<ul>
+<li>Send Email to IT about SPAM</li>
+<li>Delete SPAM</li>
+<li>Read First Email</li>
+<li>Check Email</li>
+</ul>
+
+
+<p>Once you&rsquo;ve sent the email to IT, you remove it from the stack (or to use the CS term, &ldquo;pop&rdquo; it off the top of the stack). So know you&rsquo;re back to this:</p>
+
+<ul>
+<li>Delete SPAM</li>
+<li>Read First Email</li>
+<li>Check Email</li>
+</ul>
+
+
+<p>So you delete the SPAM, and pop that off the control stack, and since that was the first email, you can also pop &ldquo;Read First Email&rdquo; off the stack. That puts you back to this:</p>
+
+<ul>
+<li>Check Email</li>
+</ul>
+
+
+<p>Now there are 9 emails left so you follow the same procedure. Since you deleted the SPAM, the 2nd message now become the &ldquo;first&rdquo;</p>
+
+<ul>
+<li>Read First Email</li>
+<li>Check Email</li>
+</ul>
+
+
+<p>This one turns out to be from your boss saying &ldquo;Turn in your TPS reports, they were due yesterday!&rdquo;. Which makes you realize that you need to actually write the reports before you can turn them in so your stack turns into:</p>
+
+<ul>
+<li>Finish TPS reports</li>
+<li>Email TPS reports to boss</li>
+<li>Read First Email</li>
+<li>Check Email</li>
+</ul>
+
+
+<p>And as your working on the reports you need to contact other people, look things up, get drafts reviewed, etc., etc. And everything is going fine until someone from IT comes by and asks about the SPAM email you contacted them about or you go to get a cup of coffee and someone mentions something else you need to be working on or your dentist&rsquo;s office calls to remind you about your root canal tomorrow. Or all of those things plus the other 8 messages that you haven&rsquo;t even looked at yet. And unlike the computer, your brain loses its control stack and you don&rsquo;t remember that you need to finish the TPS reports until you get an email from your boss saying &ldquo;Your reports are two days late!&rdquo;</p>
+
+<p>Ok so, I know it&rsquo;s not realistic, who only has 10 emails in their inbox every day.</p>
+
+<p>My idea is somewhat simple, just use a stack of sticky notes to emulate the control stack. That way, even if you get 10 interruptions you could still jump right back to working on those TPS reports. Now, I&rsquo;ve seen people use sticky notes to keep track of work and usually it takes the form of a decorative fringe around their computer monitor, with every blank surface covered. That is not what I mean. I&rsquo;m talking about a simple stack, whatever currently has your attention is on top. So you intentionally can&rsquo;t see what&rsquo;s underneath until you&rsquo;re ready to work on it. If something else comes up, just add another note to the top.</p>
+
+<p>So yeah, that&rsquo;s a little wasteful of sticky notes. Maybe a better idea would be to always keep a blank note on top. Then as you&rsquo;re working along if you get interrupted you can just write on that note what you were doing. Once you deal with the interruption you can go right back to whatever that note says and the one below it when that&rsquo;s done and so on. That keeps focus narrow, you don&rsquo;t have to hold all the to-dos in your head while you&rsquo;re doing one of them.</p>
+
+<p>It might even work with a Kanban style system. As interruptions come, sometimes they don&rsquo;t need to be completed, but simply recorded and added to the backlog. So the control stack would always have &ldquo;grab task from backlog&rdquo; at the bottom. Or in reality it would have &ldquo;Plan next project&rdquo; at the bottom, something like this:</p>
+
+<ul>
+<li>Do subtask</li>
+<li>Do task</li>
+<li>Grab next task from backlog</li>
+<li>Plan next project</li>
+</ul>
+
+
+<p>Although, most people probably don&rsquo;t need something like &ldquo;plan next project&rdquo; at the bottom since once you&rsquo;ve cleaned everything out you usually know how to decide what you want to do next.</p>
+
+<p>Well, there&rsquo;s the idea and probaly way over exlained. I&rsquo;m going to try it out, I&rsquo;ve been doing pretty well at work getting my tasks done, but I think I end up wasting time and mental effort because I&rsquo;ll get interrupted and need to remember what it was I was working on. This was much worse at previous jobs, where I was interrupted all the time.</p>
+
+<p>I&rsquo;ll report back on how it&rsquo;s going, I can already think of tools that might improve the process like a simple app to keep track of the stack.</p>
+]]></content>
+  </entry>
+  
+</feed>
