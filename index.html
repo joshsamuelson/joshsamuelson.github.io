@@ -96,22 +96,28 @@
 
 <p>The way the computer handles this is with a data structure called a stack. A good analogy is when you&rsquo;re reading a book and you find a word you don&rsquo;t know. Now you could place a bookmark in the book and close it, then grab a dictionary and open that and find your word, close the dictionary and open your book at the bookmark. But keeping track of that bookmark is a hassle, a smarter way is to set the dictionary on top of the open book and find your word. When you&rsquo;re done with the dictionary, you can move it out of the way and pick up where you left off. That&rsquo;s how a control stack in a computer works, execpt it stacks many more levels, a bit like if you&rsquo;re reading a book in a Spanish you might need to look up a word in a Spanish/English dictionary and if you didn&rsquo;t understand the English you&rsquo;d need to look that word up in an English dictionary.</p>
 
-<p>The computer is able to handle a huge control stack and it allows you to do some fancy stuff. For example, for our &ldquo;number_of_letters&rdquo; function we could write it some thing like this:
-    <code>define number_of_letters(word_to_count)
-      count = 0
-      for each letter in word_to_count
-        add 1 to count
-      return count
-    end</code>
-I hope that&rsquo;s clear enough for people who don&rsquo;t know programming, I don&rsquo;t want to over explain.
-That way of doing it is fine, but there is another way of defining that function that makes use of the control stack and it&rsquo;s called &ldquo;recursion&rdquo;
-    <code>define number_of_letters(word_to_count)
-      if word_to_count is blank
-        return 0
-      else
-        return number_of_letters(word_to_count minus the last letter) + 1
-    end</code>
-So if we&rsquo;re using it will &ldquo;hello&rdquo;, first it tries &ldquo;hello&rdquo;, then &ldquo;hell&rdquo;, then &ldquo;hel&rdquo;, then &ldquo;he&rdquo;, then &ldquo;h&rdquo;, and finally it&rsquo;s blank. Like the stack of dictionaries, as it closes each function, it sends back a value as it looks it up. The number of letters in nothing is 0, so it picks up where it left off which was <code>number_of_letters("h")</code>. But now that it closed that top &ldquo;book&rdquo;, all it has to figure out is &ldquo;0 + 1&rdquo;, so <code>number_of_letters("h")</code> returns 1 and we can close that &ldquo;book&rdquo; and pick up where we left off with <code>number_of_letters("he")</code>. Since we&rsquo;ve figured out <code>number_of_letters("h")</code> is equal to 1, we&rsquo;ll return 1 + 1 from <code>number_of_letters("he")</code>, so <code>number_of_letters("hel")</code> will return 2 + 1, and so on.
+<p>The computer is able to handle a huge control stack and it allows you to do some fancy stuff. For example, for our &ldquo;number_of_letters&rdquo; function we could write it some thing like this:</p>
+
+<pre><code>`define number_of_letters(word_to_count)
+  count = 0
+  for each letter in word_to_count
+    add 1 to count
+  return count
+end`
+</code></pre>
+
+<p>I hope that&rsquo;s clear enough for people who don&rsquo;t know programming, I don&rsquo;t want to over explain.
+That way of doing it is fine, but there is another way of defining that function that makes use of the control stack and it&rsquo;s called &ldquo;recursion&rdquo;</p>
+
+<pre><code>`define number_of_letters(word_to_count)
+  if word_to_count is blank
+    return 0
+  else
+    return number_of_letters(word_to_count minus the last letter) + 1
+end`
+</code></pre>
+
+<p>So if we&rsquo;re using it will &ldquo;hello&rdquo;, first it tries &ldquo;hello&rdquo;, then &ldquo;hell&rdquo;, then &ldquo;hel&rdquo;, then &ldquo;he&rdquo;, then &ldquo;h&rdquo;, and finally it&rsquo;s blank. Like the stack of dictionaries, as it closes each function, it sends back a value as it looks it up. The number of letters in nothing is 0, so it picks up where it left off which was <code>number_of_letters("h")</code>. But now that it closed that top &ldquo;book&rdquo;, all it has to figure out is &ldquo;0 + 1&rdquo;, so <code>number_of_letters("h")</code> returns 1 and we can close that &ldquo;book&rdquo; and pick up where we left off with <code>number_of_letters("he")</code>. Since we&rsquo;ve figured out <code>number_of_letters("h")</code> is equal to 1, we&rsquo;ll return 1 + 1 from <code>number_of_letters("he")</code>, so <code>number_of_letters("hel")</code> will return 2 + 1, and so on.
 This is a trivial example of recursion, but it can be incredbily powerful and it can save a ton of keeping track of the counts of things and elaborate loops. It also let&rsquo;s you make the computer smarter. All it needs to know how to do is check if a word is blank, how to drop the last letter from a word, and how to add. Hopefully this isn&rsquo;t too hard to understand for someone who doesn&rsquo;t know programming.</p>
 
 <p>The point is, that the computer handles all of this with ease because it has the control stack, it adds new tasks to the top of the stack and removes them as their completed and painlessly picks up where it left off. What if we handled interruptions in the same way?</p>
@@ -120,15 +126,23 @@ This is a trivial example of recursion, but it can be incredbily powerful and it
 
 <p>Say you open your email and see there are 10 new emails. So you start from the top, and read the first one,</p>
 
-<p>So here&rsquo;s what your stack looks like:
-- Check Email
-- Read First Email</p>
+<p>So here&rsquo;s what your stack looks like:</p>
+
+<ul>
+<li>Check Email</li>
+<li>Read First Email</li>
+</ul>
+
 
 <p>Except, that isn&rsquo;t quite right. Even though that&rsquo;s the order you did the things, in a stack the first thing is on the bottom. As you add new tasks, they get put on top.</p>
 
-<p>So the stack is really this:
-- Read First Email
-- Check Email</p>
+<p>So the stack is really this:</p>
+
+<ul>
+<li>Read First Email</li>
+<li>Check Email</li>
+</ul>
+
 
 <p>The first email is about how you&rsquo;re long lost relative in Nigeria has left you a substantial fortune and the sender just needs some money up front to pay the bank transfer fees. After reading that, your stack would look like this:</p>
 
