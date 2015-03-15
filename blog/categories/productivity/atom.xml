@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Productivity | Josh Samuelson]]></title>
   <link href="http://joshsamuelson.github.io/blog/categories/productivity/atom.xml" rel="self"/>
   <link href="http://joshsamuelson.github.io/"/>
-  <updated>2015-03-15T11:15:03-07:00</updated>
+  <updated>2015-03-15T11:15:49-07:00</updated>
   <id>http://joshsamuelson.github.io/</id>
   <author>
     <name><![CDATA[Josh Samuelson]]></name>
@@ -28,23 +28,23 @@
 
 <p>The computer is able to handle a huge control stack and it allows you to do some fancy stuff. For example, for our &ldquo;number_of_letters&rdquo; function we could write it some thing like this:</p>
 
-<pre><code>`define number_of_letters(word_to_count)
+<pre><code>define number_of_letters(word_to_count)
   count = 0
   for each letter in word_to_count
     add 1 to count
   return count
-end`
+end
 </code></pre>
 
 <p>I hope that&rsquo;s clear enough for people who don&rsquo;t know programming, I don&rsquo;t want to over explain.
 That way of doing it is fine, but there is another way of defining that function that makes use of the control stack and it&rsquo;s called &ldquo;recursion&rdquo;</p>
 
-<pre><code>`define number_of_letters(word_to_count)
+<pre><code>define number_of_letters(word_to_count)
   if word_to_count is blank
     return 0
   else
     return number_of_letters(word_to_count minus the last letter) + 1
-end`
+end
 </code></pre>
 
 <p>So if we&rsquo;re using it will &ldquo;hello&rdquo;, first it tries &ldquo;hello&rdquo;, then &ldquo;hell&rdquo;, then &ldquo;hel&rdquo;, then &ldquo;he&rdquo;, then &ldquo;h&rdquo;, and finally it&rsquo;s blank. Like the stack of dictionaries, as it closes each function, it sends back a value as it looks it up. The number of letters in nothing is 0, so it picks up where it left off which was <code>number_of_letters("h")</code>. But now that it closed that top &ldquo;book&rdquo;, all it has to figure out is &ldquo;0 + 1&rdquo;, so <code>number_of_letters("h")</code> returns 1 and we can close that &ldquo;book&rdquo; and pick up where we left off with <code>number_of_letters("he")</code>. Since we&rsquo;ve figured out <code>number_of_letters("h")</code> is equal to 1, we&rsquo;ll return 1 + 1 from <code>number_of_letters("he")</code>, so <code>number_of_letters("hel")</code> will return 2 + 1, and so on.
